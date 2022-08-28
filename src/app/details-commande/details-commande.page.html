@@ -1,0 +1,37 @@
+  <ion-header>
+    <ion-toolbar color="warning">
+      <!-- <ion-icon routerLink="/commandes" name="caret-back-circle"></ion-icon> -->
+      <ion-icon  style="font-size:210%" routerLink="/" name="arrow-undo-outline"></ion-icon>
+  
+  <ion-title>  
+    details de la Commandes
+  </ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <!-- {{commande | json }} -->
+
+
+  <!-- List of Text Items -->
+  <ion-list  >
+  
+
+   <!-- <ion-title color="black">Detail de la Commande</ion-title> -->
+    <ion-item>
+     
+      <ion-label> N° de commande: {{commande.nCommande}} </ion-label>
+
+      
+    </ion-item>
+    <ion-item>
+      <ion-label> Montant: Fcfa  {{commande.montant}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label> {{commande.etat}}</ion-label>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>  {{commande.date}} </ion-label>
+    </ion-item>
+
+
+  </ion-list>

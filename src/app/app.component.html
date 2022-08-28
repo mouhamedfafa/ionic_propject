@@ -1,0 +1,66 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main" class="menu">
+    <ion-header>
+      <ion-toolbar color="warning">
+        <ion-title> Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+
+          <ion-item >
+            <a routerLink="/home"><ion-icon color="warning" name="grid"> </ion-icon></a>
+
+            <span>
+              <a routerLink="/home"> Catalogue</a>
+            </span>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        <ion-menu-toggle>
+          <ion-item (click)="goTo()">
+            <a>
+          
+              <ion-icon  color="warning" name="copy-sharp"></ion-icon>
+            
+            <span> Mes commandes </span>
+        </a>
+         
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item>
+            <a routerLink="/panier"
+              ><ion-icon  color="warning" name="basket-outline"> </ion-icon>
+         
+            <span> Mon Panier </span>
+          </a>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item>
+            <a routerLink="/security">
+              <ion-icon  color="warning" name="log-in-sharp"></ion-icon>
+         
+
+            <span> Connexion </span>   </a>
+          </ion-item></ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item>
+            <a routerLink="/security">
+              <ion-icon  color="warning" name="caret-back-circle-sharp"></ion-icon>
+          Deconnexion
+        </a>
+        
+        </ion-item >
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

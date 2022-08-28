@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-icon style="font-size:210%" routerLink="" name="arrow-undo-outline"></ion-icon>
+
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-toolbar>
+    <ion-title color="dark" size="large">Connectez-vous ...</ion-title>
+  </ion-toolbar>
+
+<form  name="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <ion-item class="login">
+    <ion-input type="text" placeholder="login" formControlName="login" name="login"  [(ngModel)]="form!.login"  [ngClass]="{ 'is-invalid': submitted && f['login'].errors }"></ion-input>
+    <!-- <ion-label>Default Label</ion-label> -->
+    <!-- <ion-label class="fs-5">Default Label</ion-label> -->
+    <div *ngIf="submitted && f['login'].errors" class="invalid-feedback">
+      <div *ngIf="f['login'].errors['required']">Email obligatoire</div>
+      <div *ngIf="f['login'].errors['login']">Email must be a valid email address</div>
+  </div>
+
+  </ion-item >
+  <ion-item class="password">
+    <ion-input type="password" placeholder="password"  formControlName="password" [(ngModel)]="form!.password"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" name="password"></ion-input>
+    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+      <div *ngIf="f['password'].errors['required']">le mot de passe est obligatoire</div>
+      <div *ngIf="f['password'].errors['minlength']">le mot de passe doit etre au moins 6 catactère</div>
+  </div>
+    <!-- <ion-label>Default Label</ion-label> -->
+    <!-- <ion-label class="fs-5">Default Label</ion-label> -->
+
+
+  </ion-item>
+
+  <ion-button color="warning" type="submit"	shape="round" class="btn_box" expand="full">Connexion</ion-button>
+</form>
+  
+</ion-content>

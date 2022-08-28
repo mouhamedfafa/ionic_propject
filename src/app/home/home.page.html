@@ -1,0 +1,135 @@
+<ion-header
+  translucent="true"
+  fullscreen="true"
+  scroll-y="false"
+  color="succes">
+  <ion-toolbar color="warning" class="tool">
+    <ion-title size="large">
+      <ion-icon style="font-size:75% ;" name="menu" (click)="openFirst()"></ion-icon>
+      Brasil
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <!-- <ion-card-subtitle>Card1Subtitle</ion-card-subtitle> -->
+      <img src="assets/img.jpg" alt="" />
+    </ion-slide>
+    <ion-slide>
+      <!-- <ion-card-subtitle>Card 2Subtitle</ion-card-subtitle> -->
+      <img src="assets/hero-bg.jpg" alt="" />
+    </ion-slide>
+    <ion-slide>
+      <!-- <ion-card-subtitle>Card 2Subtitle</ion-card-subtitle> -->
+      <img src="assets/f2.png" alt="" />
+    </ion-slide>  <ion-slide>
+      <!-- <ion-card-subtitle>Card 2Subtitle</ion-card-subtitle> -->
+      <img src="assets/f7.png" alt="" />
+    </ion-slide>  <ion-slide>
+      <!-- <ion-card-subtitle>Card 2Subtitle</ion-card-subtitle> -->
+      <img src="assets/f8.png" alt="" />
+    </ion-slide>
+  </ion-slides>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+
+    <!--   
+            <ul class="filters_menu">
+        <li class="active" data-filter="*"><a (click)="filterProduct('')">Catalogue</a></li>
+        
+        <li data-filter=".pizza" ><a (click)="filterProduct('Burger')">Burger</a></li>
+        <li data-filter=".pasta" > <a (click)="filterProduct('Menu')">Menu</a></li>
+        <li data-filter=".fries">Fries</li>
+      </ul>
+   -->
+   
+    <ion-card color="dark" *ngFor="let item of post ">
+    <ion-item class="it">
+      <img style="border-radius:100%;width:75% ; border: solid #ffbe33 6px;" src="data:image/png;base64,{{item.image}}" alt="" />
+
+
+    </ion-item>
+
+      <ion-card-title class="fs-3"> {{item.nom}} </ion-card-title>
+
+      <ion-card-content color="">
+        <ion-button color="warning">
+          <span span class="">Prix</span> :{{item.prix}}
+          <input type="hidden"  value="{{item.prix}}" >
+        </ion-button>
+      
+
+
+  <ion-button
+  color="primary"
+  routerLink="/details/{{item.id}}"
+  >Details</ion-button>
+  <ion-button color="darker">
+
+    <img style="height:60px ;border-radius: 60%; margin-left:15% ;" src="assets/icon1.png" alt="">
+
+    </ion-button>
+
+        <!-- <ion-icon color="warning" style="font-size:300% ;" name="basket"></ion-icon> -->
+     
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-modal [isOpen]="isModalOpen" class="mod">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding"    >
+      <ion-range
+        [min]="10"
+        [max]="200"
+        [value]="5"
+        [pin]="true"
+        [pinFormatter]="pinFormatter"  (ionChange)="onIonChange($event)"  >
+      <ion-label>ionChange emitted value: {{ lastEmittedValue }}</ion-label>
+      <!-- <input type="hidden" value="{{lastEmittedValue}}" > -->
+
+    </ion-range>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="Menu" (click)="filterProduct('')">
+          <!-- <ion-icon name="fast-food-outline"></ion-icon> -->
+          <ion-icon name="grid"></ion-icon>
+          <ion-label>Catalogue</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="schedule" (click)="filterProduct('Burger')">
+          <ion-icon name="beer"></ion-icon>
+          <ion-label> Burger</ion-label>
+          <ion-badge>6</ion-badge>
+        </ion-tab-button>
+
+        <ion-tab-button tab="Menu" (click)="filterProduct('Menu')">
+          <ion-icon name="fast-food-outline"></ion-icon>
+          <ion-label>Menu</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="Menu" (click)="setOpen(true)" >
+          <ion-icon name="card-outline"></ion-icon>
+          <ion-label> Prix </ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

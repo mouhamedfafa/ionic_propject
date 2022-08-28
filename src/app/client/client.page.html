@@ -1,0 +1,74 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>client</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+</ion-content>
+ -->
+ <!-- {{commandes | json}} -->
+
+
+ <ng-container >
+
+  <ion-header>
+    <ion-toolbar color="warning">
+      <!-- <ion-icon routerLink="/commandes" name="caret-back-circle"></ion-icon> -->
+      <ion-icon  style="font-size:210%" routerLink="" name="arrow-undo-outline"></ion-icon>
+  
+  <ion-title>  
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    listes de Mes Commandes
+  </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content >
+
+    <ion-list>
+      <ion-item>
+        <!-- <ion-select placeholder="Etat">
+          <ion-select-option value="apples">Encours</ion-select-option>
+          <ion-select-option value="oranges">Termieé</ion-select-option>
+          <ion-select-option value="bananas">Validée</ion-select-option>
+        </ion-select> -->
+
+   
+        <ion-title>  
+          <ion-datetime-button color="red" datetime="datetime"></ion-datetime-button>
+          listes de Mes Commandes
+        </ion-title>
+     
+
+      </ion-item>
+
+    </ion-list>
+
+
+
+  <ng-container  *ngFor="let item of commandes">
+    <!-- {{commandes | json }} -->
+    <!-- <input  value="{{item.date}}" type="hidden"> -->
+
+  <!-- List of Text Items -->
+  <ion-list  >
+   
+    
+    <ion-item> 
+      
+      <ion-label> N° de commande: 
+    {{ item.nCommande }}
+        
+    <p>  {{item.date  | date:'dd/MM/YYYY à mm:ss'}} </p>
+
+      </ion-label>
+
+      <a routerLink="/commandes/{{item.id}}" > <ion-icon name="arrow-redo-outline"></ion-icon></a>
+    </ion-item>
+
+  
+   
+  </ion-list>
+  </ng-container>
+</ion-content>
+ 

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <!-- <ion-icon  name="caret-back-circle"></ion-icon> -->
+    <ion-icon  style="font-size:210%"  routerLink="" name="arrow-undo-outline"></ion-icon>
+
+<ion-title>  
+  Commandes de la journée 
+</ion-title>
+<!-- {{commandes |json}} -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item *ngFor="let item of commandes" >
+<ng-container *ngIf="item.etat == 'en cours'">
+
+    <ion-avatar slot="start">
+      <img src="assets/ass.png"/>
+    </ion-avatar>
+    <ion-label>
+      <h2>Commande N°: {{item.nCommande}}   </h2>
+      <h3>Montant: {{item.montant}}   </h3>
+      <p>  {{item.date  | date:'dd/MM/YYYY à mm:ss'}} </p>
+    </ion-label>
+   <a routerLink="/commandes/{{item.id}}" > <ion-icon name="arrow-redo-outline"></ion-icon></a>
+  </ng-container>
+  </ion-item>
+</ion-content>
